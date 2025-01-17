@@ -12,7 +12,6 @@ public_users.post("/register", (req, res) => {
 
 // Get the book list available in the shop
 public_users.get('/', function (req, res) {
-    //Write your code here
     return res.status(200).json({
         message: "success",
         data: books
@@ -21,8 +20,8 @@ public_users.get('/', function (req, res) {
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn', function (req, res) {
-    const isbn = req.params.isbn; // Extract the ISBN from the request parameters
-    const book = books[isbn]; // Find the book with the matching ISBN
+    const isbn = req.params.isbn; 
+    const book = books[isbn]; 
 
     if (book) {
         return res.status(200).json({ message: "success", data: book });
