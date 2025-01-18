@@ -12,9 +12,11 @@ app.use(express.json());
 app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUninitialized: true}))
 
 app.use("/customer/auth/*", function auth(req,res,next){
+    let username = req.body.username;
+    let password = req.body.password;
 
-    authenticatedUser(req.body.username, req.body.password)
-    res.json({"data": [req.headers.username, req.headers.password]})
+    let auth = authenticatedUser(username, password)
+    res.json({"data": [username, password, auth]})
 });
  
 const PORT =5000;
