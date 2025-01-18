@@ -73,7 +73,7 @@ public_users.get('/title/:title', function (req, res) {
     );
 
     if (Object.keys(booksByTitle).length === 0) {
-        return res.status(404).json({ message: "No books found for the specified author." });
+        return res.status(404).json({ message: "No books found for the specified title." });
     }
 
     return res.status(200).json({ message: "success", data: booksByTitle });
